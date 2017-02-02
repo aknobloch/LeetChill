@@ -1,0 +1,21 @@
+{
+	"manifest_version" : 2,
+	"name" : "LeetChill",
+	"version" : "1.0",
+	
+	"description" : "Hides LeetCode difficulty levels",
+	
+	"icons" : 
+	{
+		"48" : "icons/logo.png"
+	},
+	
+	"content_scripts" :
+	[
+		{
+			"matches" : ["*://*.leetcode.com/problemset/*",
+						 "*://*.leetcode.com/problems/*"],
+			"js" : ["injection.js"]
+		}
+	]
+}
