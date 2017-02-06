@@ -13,9 +13,13 @@
 	"content_scripts" :
 	[
 		{
-			"matches" : ["*://*.leetcode.com/problemset/*",
-						 "*://*.leetcode.com/problems/*"],
-			"js" : ["injection.js"]
+			"matches" : ["*://*.leetcode.com/problemset/*"],
+			"js" : ["problem_set_injection.js"]
+		},
+		
+		{
+			"matches" : ["*://*.leetcode.com/problems/*"],
+			"js" : ["problem_view_injection.js"]
 		}
 	]
 }

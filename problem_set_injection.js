@@ -72,13 +72,13 @@ function pageLoaded()
 } 
 
 
-// continually polls every 100 ms to see if table is loaded
-// after 50 attempts (five seconds), give up
+// continually polls every 50 ms to see if table is loaded
+// after 100 attempts (five seconds), give up
 var checkExist = setInterval(function() {
 	
 	attemptsMade++;
 	
-	if(attemptsMade == 50)
+	if(attemptsMade == 100)
 	{
 		clearInterval(checkExist);
 	}
@@ -89,7 +89,7 @@ var checkExist = setInterval(function() {
 		clearInterval(checkExist);
 	}
    
-}, 100);
+}, 50);
 
 
 
