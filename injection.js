@@ -1,5 +1,15 @@
+
+// constant to track hide/show toggle
+var isHidden = false;
+
+// constant to track how many attempts have been made to find the table
+var attemptsMade = 0;
+
+// sets visibility of the difficulty/acceptance
 function setVisibility()
 {
+	
+	// defines what to set the current state as
 	var state = "hidden";
 	
 	if(isHidden)
@@ -31,29 +41,57 @@ function setVisibility()
 	isHidden = ! isHidden;
 }
 
+// adds toggle button
+function addButton()
+{
+	// create button
+	var btn = document.createElement("BUTTON");
+	var btnTxt = document.createTextNode("Toggle LeetChill");
+	btn.appendChild(btnTxt);
 
-var isHidden = false;
+	// pretify it
+	btn.className = "btn btn-success btn-md btn-action";
+	btn.style.marginLeft = "10px";
 
-setVisibility();
+	// add functionality
+	btn.onclick = function() 
+	{
+		setVisibility();
+	};
 
-// create button
-var btn = document.createElement("BUTTON");
-var btnTxt = document.createTextNode("Toggle LeetChill");
-btn.appendChild(btnTxt);
+	// add btn to appropriate location
+	var buttonParentLocation = document.getElementsByClassName("btn btn-success btn-md btn-action")[0].parentElement;
+	buttonParentLocation.appendChild(btn);
+}
 
-// pretify it
-btn.className = "btn btn-success btn-md btn-action";
-btn.style.marginLeft = "10px";
-
-// add functionality
-btn.onclick = function() 
+// what to do on page load
+function pageLoaded()
 {
 	setVisibility();
-};
+	addButton();
+} 
 
-// add btn to appropriate location
-var buttonParentLocation = document.getElementsByClassName("btn btn-success btn-md btn-action")[0].parentElement;
-buttonParentLocation.appendChild(btn);
+
+// continually polls every 100 ms to see if table is loaded
+// after 50 attempts (five seconds), give up
+var checkExist = setInterval(function() {
+	
+	attemptsMade++;
+	
+	if(attemptsMade == 50)
+	{
+		clearInterval(checkExist);
+	}
+	
+	if (document.getElementsByClassName("reactable-data")[0]) 
+	{
+		pageLoaded();
+		clearInterval(checkExist);
+	}
+   
+}, 100);
+
+
 
 
 
