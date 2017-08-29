@@ -7,8 +7,8 @@ LeetChill is a WebExtension that hides the difficulty levels and acceptance rate
 
 
 
-![Problem Set Changes](http://i.imgur.com/yAf2o0h.png)
+![Problem Set Changes](https://addons.cdn.mozilla.net/user-media/previews/full/182/182160.png)
 
 
 
-![Problem View Changes](http://i.imgur.com/Ld86IJ5.png)
+![Problem View Changes](https://addons.cdn.mozilla.net/user-media/previews/full/182/182159.png)
